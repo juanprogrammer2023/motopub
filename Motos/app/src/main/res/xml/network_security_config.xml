@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">192.168.80.15</domain>
+        <domain includeSubdomains="true">192.168.1.8</domain> <!-- Cambia esta IP a la de tu servidor -->
+        <domain includeSubdomains="true">10.0.2.2</domain>  <!-- Cambia esta IP a la de tu servidor -->
+        <domain includeSubdomains="true">172.19.38.197</domain>  <!-- Cambia esta IP a la de tu servidor -->
+        <domain includeSubdomains="true">192.168.101.10</domain>  <!-- Cambia esta IP a la de tu servidor -->
+    </domain-config>
+</network-security-config>

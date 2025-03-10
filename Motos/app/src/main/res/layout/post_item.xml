@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp"
+    >
+
+    <!-- Nombre del perfil -->
+    <TextView
+        android:id="@+id/tv_profile_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perfil"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Título del post -->
+    <TextView
+        android:id="@+id/tv_post_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Título del Post"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Imagen de la publicación -->
+    <ImageView
+        android:id="@+id/img_post_image"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="4dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/moto"
+        android:contentDescription="Imagen del post"/>
+
+    <!-- Contenedor de etiquetas con scroll horizontal -->
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:padding="4dp"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@+id/tags_container"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start">
+            <!-- Las etiquetas se agregarán dinámicamente aquí -->
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <!-- Sección para seleccionar y asignar etiquetas -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asignar Etiquetas"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chip_group_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:flow_horizontalGap="8dp"
+            app:flow_verticalGap="8dp"
+            app:flow_wrapMode="chain"
+            app:singleSelection="false" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <!-- Botón para asignar etiquetas con texto e icono -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_assign_tags"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="Add Tag"
+            android:textColor="#FFFFFF"
+            app:icon="@drawable/iconamoon__send_fill"
+            app:iconGravity="textStart"
+            app:backgroundTint="@color/teal_500"
+            android:contentDescription="Asignar etiquetas" />
+
+        <!-- Botón para eliminar etiquetas con texto e icono -->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnDelete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Tag"
+            android:textColor="#FFFFFF"
+            app:icon="@drawable/mdi__close_box"
+            app:iconGravity="textStart"
+            app:backgroundTint="@color/teal_500"
+            android:contentDescription="Eliminar etiquetas" />
+    </LinearLayout>
+
+
+    <!-- Botones de interacción (like, comment, save) -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <ImageView
+            android:id="@+id/btn_like"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/ic_like"
+            android:contentDescription="Like"/>
+
+        <ImageView
+            android:id="@+id/btn_comment"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toEndOf="@id/btn_like"
+            android:layout_marginStart="10dp"
+            android:src="@mipmap/ic_comment"
+            android:contentDescription="Comment"/>
+
+        <ImageView
+            android:id="@+id/btn_save"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:src="@mipmap/ic_savend"
+            android:contentDescription="Save"/>
+    </RelativeLayout>
+
+    <!-- Cantidad de likes -->
+    <TextView
+        android:id="@+id/tv_likes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="20 likes"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Descripción del post -->
+    <TextView
+        android:id="@+id/tv_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descripción del post"
+        android:layout_marginBottom="4dp"/>
+
+    <!-- Fecha del post -->
+    <TextView
+        android:id="@+id/tv_post_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fecha del post"
+        android:textSize="14sp"
+        android:textColor="#888888"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- Bloque de comentarios, inicialmente oculto -->
+    <LinearLayout
+        android:id="@+id/comments_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:layout_marginTop="8dp">
+
+        <!-- RecyclerView para mostrar los comentarios existentes -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view_comments"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical"
+            tools:listitem="@layout/comment_item" />
+
+        <!-- Sección para agregar un nuevo comentario -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <!-- Campo de texto para ingresar el comentario -->
+            <EditText
+                android:id="@+id/et_new_comment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Escribe tu comentario"
+                android:padding="10dp"
+                android:background="@drawable/bottom_nav_background"
+                android:inputType="text"
+                android:maxLines="3" />
+
+            <!-- Botón para enviar el comentario -->
+            <Button
+                android:id="@+id/btn_send_comment"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/iconamoon__send_fill"
+                android:contentDescription="Enviar comentario" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

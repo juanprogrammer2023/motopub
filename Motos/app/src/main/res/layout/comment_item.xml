@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="12dp"
+    app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:background="@drawable/comment_background">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/iv_user_avatar"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/healthicons__ui_user_profile"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/teal_200"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_comment_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/design_default_color_on_secondary"
+            app:layout_constraintStart_toEndOf="@id/iv_user_avatar"
+            app:layout_constraintTop_toTopOf="@id/iv_user_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Nombre del Usuario" />
+
+        <TextView
+            android:id="@+id/tv_comment_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="15sp"
+            android:textColor="@color/black"
+            android:lineSpacingExtra="4dp"
+            app:layout_constraintStart_toStartOf="@id/tv_comment_author"
+            app:layout_constraintTop_toBottomOf="@id/tv_comment_author"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Este es el texto del comentario. Puede ser largo y ocupar varias líneas para mostrar cómo se ve el diseño con contenido extenso." />
+
+        <TextView
+            android:id="@+id/tv_comment_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="12sp"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="@id/tv_comment_text"
+            app:layout_constraintTop_toBottomOf="@id/tv_comment_text"
+            tools:text="Hace 2 horas" />
+
+        <ImageButton
+            android:id="@+id/btn_like"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/solar__like_bold_duotone"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:padding="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:tint="@color/black" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
